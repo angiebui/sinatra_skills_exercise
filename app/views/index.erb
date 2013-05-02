@@ -2,4 +2,36 @@
   <h1>User Skills and Levels</h1>
 
   <%# TODO: display the skills and proficiency levels for each user ... %>
+ <p><a href='/skills'>Add a skill</a></p>
+ <p><a href='/edit'>Edit skills</a></p>
+
+
+<div class="user-info">
+  <% @users.each do |user| %>
+  <p><h4><%= user.name %></h4></p>
+      <% user.skills.each do |skill| %>
+      <p><%= skill.name %> (<%= skill.context %>)</p>
+        <% skill.proficiencies.each do |p| %>
+          <p>Years: <%= p.years %></p>
+          <p>Formal: <%= p.formal %></p><br>
+          <%= "----------------------" %> 
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
+
+<!-- ^  Went about this in an ineffective way. Need to change
+
+
+- Need to add the "edit skills" section (similar to blog edits)
+- Would create a route to get and post to '/edit'
+
+- GET skills and proficiencies for current_user in get route
+
+current_user.skills 
+current_user.proficiencies?
+
+- POST update_attributes for skill and proficiencies? 
+- Most likely need to use find_or_create_by -->
+

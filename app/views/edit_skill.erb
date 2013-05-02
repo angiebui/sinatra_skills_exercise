@@ -1,0 +1,10 @@
+ <div class="container">
+  <form action="/edit" method="post">
+    <h4><p>Edit your this skill:</p></h4>
+    Context: <input type="text" name="skill[context]" value="<%=@skill.context%>"><br>
+    Name: <input type="text" name="skill[name]" value="<%=@skill.name%>"><br>
+    Years of Experience: <input type="text" name="proficiency[years]" value="<%=@skill.proficiencies.first.years%>"><br>
+    Formal? <input type="text" name="proficiency[formal]" value="<%=@skill.proficiencies.first.formal%>"><br>
+    <input type="hidden" name ="skill_id[skill_id]" value="<%= @skill.id %>"> 
+    <input type="submit" value="Update">
+  </form><br>

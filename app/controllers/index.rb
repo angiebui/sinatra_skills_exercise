@@ -1,9 +1,60 @@
 get '/' do
   # render home page
-  @users = User.all
+  @users = User.order("created_at DESC")
+  @proficiencies = Proficiency.all
+  @skills = Skill.all
 
   erb :index
 end
+
+get '/skills' do
+
+  erb :skills
+end
+
+post '/skills' do
+  p params[:skill]
+  @skill = Skill.create(params[:skill])
+  erb :proficiency
+end
+
+post '/proficiency' do
+  @skill = Skill.find(params[:proficiency][:skill_id])
+  @proficiency = Proficiency.new(params[:proficiency])
+  if @proficiency.save 
+    redirect '/'
+  else
+    @errors = "Required. Please enter Year and True/False"
+    erb :proficiency
+  end
+end
+
+get '/edit' do
+  @skills = current_user.skills
+  erb :edit
+end
+
+get '/edit/:id' do
+  @skill = Skill.find(params[:id])
+  erb :edit_skill
+end
+
+post '/edit' do
+  p params[:skill_id]
+  p params[:skill]
+  p params[:proficiency]
+
+  skill = Skill.find(params[:skill_id][:skill_id])
+  p skill
+  skill.update_attributes(params[:skill])
+  p skill
+  p skill.proficiencies.first
+  skill.proficiencies.first.update_attributes(params[:proficiency])
+  p skill.proficiencies.first
+
+end
+
+
 
 #----------- SESSIONS -----------
 

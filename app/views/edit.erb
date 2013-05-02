@@ -1,0 +1,7 @@
+<div class="container">
+    <p> Edit your skills. Pick a skill to edit!</p>
+    <% @skills.each do |skill| %>
+      <a href="edit/<%= skill.id %>"><p><%= skill.name %></p></a>
+  <% end %>
+</div>
+

@@ -1,0 +1,16 @@
+<div class="container">
+  <form action="/proficiency" method="post">
+    <p> Add your proficiency </p>
+    Years of Experience: <input type="text" name="proficiency[years]" placeholder="Enter a number e.g. 2">  
+    Formal Education? <input type="text" name="proficiency[formal]" placeholder="True or False"><br>
+    <input type="hidden" name="proficiency[skill_id]" value="<%= @skill.id%>">
+    <input type="hidden" name="proficiency[user_id]" value="<%= current_user.id%>">
+    <input type="submit" value="Submit">
+   </form><br>
+
+   <div class="errors">
+      <% if @errors %>
+      <p><%= @errors %></p>
+      <% end %>
+   </div>
+</div>

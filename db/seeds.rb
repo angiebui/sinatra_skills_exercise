@@ -19,3 +19,9 @@ design_skills.each do |skill|
 end
 
 # TODO: create associations between users and skills
+Proficiency.create(:user_id => rand(1..5), :skill_id => rand(1..10), :years => rand(1..10), :formal => true)
+Proficiency.create(:user_id => rand(1..5), :skill_id => rand(1..10), :years => rand(1..10), :formal => false)
+Proficiency.create(:user_id => rand(1..5), :skill_id => rand(1..10), :years => rand(1..10), :formal => true)
+Proficiency.create(:user_id => rand(1..5), :skill_id => rand(1..10), :years => rand(1..10), :formal => false)
+Proficiency.create(:user_id => rand(1..5), :skill_id => rand(1..10), :years => rand(1..10), :formal => true)
+Proficiency.create(:user_id => rand(1..5), :skill_id => rand(1..10), :years => rand(1..10), :formal => false)
